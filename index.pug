@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Сайт на Pug
+        link(rel="stylesheet", href="css/style.css")
+    body 
+
+        -var games = [{title: "Red Dead Redemption 2", releaseDate: "26 октября 2018", image: "redDead.jpg"}, {title: "God of War", releaseDate: "20 апреля 2018", image: "GodofWar.jpg"}, {title: "Uncharted 4: A Thief’s End", releaseDate: "10 мая 2016", image: "Uncharted.jpg"}, {title: "The Last of Us", releaseDate: "14 июня 2013", image: "tlou.jpg"}, {title: "Portal 2", releaseDate: "18 апреля 2011", image: "portal.jpg"}, {title: "GTA V", releaseDate: "17 сентября 2013", image: "gta.jpg"}, {title: "Resident Evil 4", releaseDate: "11 января 2005", image: "resident.jpg"}, {title: "Spider-Man", releaseDate: "7 сентября 2018", image: "SpiderMan.jpg"}]
+
+        .container 
+            h1.title Мои любимые игры
+            p.description На ПК существует множество увлекательных и популярных игр, которые могут стать любимыми для многих геймеров. Первой игрой, которая часто становится любимой, является популярная многопользовательская игра в жанре "шутера" с элементами стратегии. Но не менее популярными являются игры в жанре "RPG" (ролевые игры), где игроку предоставляется уникальная возможность окунуться в фантастическую вселенную. Также не стоит забывать об играх с открытым миром, где игроку предоставляется свобода действий и исследования. В последнее время стали популярны игры-головоломки, требующие логического мышления и находчивости от игрока.
+            ul.grid 
+                each game in games
+                    li.grid__item
+                        article.card 
+                            a.card__image(href="/")
+                                img(src="./img/" + game.image, alt= game.image)
+                            h2.card__title
+                                a(href="/")= game.title
+                            br
+                            span.card__date Дата выхода: #{game.releaseDate}
